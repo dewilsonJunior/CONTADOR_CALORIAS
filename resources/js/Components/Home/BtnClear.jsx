@@ -1,8 +1,9 @@
 import Button from "@/Components/Button";
 
-export default function BtnClear({ setSearch }) {
+export default function BtnClear({ setSearch, setShowTable }) {
   const handleClearInput = () => {
     setSearch("");
+    setShowTable(false);
   };
 
   return (

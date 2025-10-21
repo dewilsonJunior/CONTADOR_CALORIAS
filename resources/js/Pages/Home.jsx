@@ -8,6 +8,7 @@ import ContainerAlert from "@/Components/ContainerAlert";
 export default function Home({ result }) {
   const [search, setSearch] = useState("");
   const [alert, setAlert] = useState(null);
+  const [showTable, setShowTable] = useState(true);
 
   return (
     <div className="w-screen h-screen flex justify-center bg-gray-300">
@@ -24,10 +25,10 @@ export default function Home({ result }) {
         </div>
         <div className="w-full flex justify-center mt-2 gap-4">
           <BtnSearch search={search} />
-          <BtnClear setSearch={setSearch} />
+          <BtnClear setSearch={setSearch} setShowTable={setShowTable} />
         </div>
 
-        {result ? <Table result={result} /> : null}
+        {showTable && result ? <Table result={result} /> : null}
 
         <ContainerAlert message={alert} />
       </div>
